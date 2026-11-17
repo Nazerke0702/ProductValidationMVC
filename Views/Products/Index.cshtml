@@ -1,0 +1,23 @@
+@model IReadOnlyList<ProductValidationMVC.Models.Product>
+@{ ViewData["Title"] = "Тауарлар тізімі"; }
+
+<div class="page-heading catalog-heading">
+    <div><span class="eyebrow">ӨНІМДЕР КАТАЛОГЫ</span><h1>Тауарлар тізімі</h1><p>Каталогыңыздағы барлық өнім бір жерде.</p></div>
+    <a class="btn btn-studio-primary" asp-action="Create"><span aria-hidden="true">＋</span> Жаңа тауар</a>
+</div>
+
+<div class="catalog-meta"><span class="catalog-live-dot"></span> Белсенді тауарлар <strong>@Model.Count</strong></div>
+
+@if (Model.Count == 0)
+{
+    <section class="empty-state"><div class="empty-illustration"><span>✿</span></div><span class="eyebrow">ӘЗІРГЕ БОС</span><h2>Каталогты бастаңыз</h2><p>Бірінші тауарыңызды тіркеп, барлық ақпаратты бір беттен басқарыңыз.</p><a asp-action="Create" class="btn btn-studio-primary">Тауар қосу <span aria-hidden="true">→</span></a></section>
+}
+else
+{
+    <div class="table-card"><div class="table-responsive"><table class="table align-middle product-table"><thead><tr><th>Тауар атауы</th><th>Категория</th><th>Бағасы</th><th>Саны</th><th><span class="visually-hidden">Толығырақ</span></th></tr></thead><tbody>
+    @foreach (var product in Model)
+    {
+        <tr><td><div class="product-name"><span class="product-mark">@product.Name[..1]</span><div><strong>@product.Name</strong><small>№ @product.Id</small></div></div></td><td><span class="category-pill">@product.Category</span></td><td class="price-cell">@product.Price.ToString("N0") <span>₸</span></td><td><span class="quantity-pill">@product.Quantity дана</span></td><td class="text-end"><a class="table-link" asp-action="Details" asp-route-id="@product.Id">Толығырақ <span aria-hidden="true">→</span></a></td></tr>
+    }
+    </tbody></table></div></div>
+}

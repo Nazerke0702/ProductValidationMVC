@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Басты бет";
+}
+
+<section class="hero-panel">
+    <div class="hero-copy">
+        <div class="hero-kicker"><span class="kicker-sparkle">✦</span> Nazerke's Product Studio</div>
+        <h1>Тауарларды басқарудың <span>ақылды жүйесі</span></h1>
+        <p class="hero-description">Өнімдеріңізді тіркеңіз, деректерді сенімді тексеріңіз және бәрін бір жинақы каталогта басқарыңыз.</p>
+        <div class="hero-actions">
+            <a class="btn btn-studio-primary" asp-controller="Products" asp-action="Create">Тауар қосу <span aria-hidden="true">→</span></a>
+            <a class="btn btn-studio-secondary" asp-controller="Products" asp-action="Index">Тауарлар тізімі</a>
+        </div>
+        <p class="author-note"><span class="author-note-dot"></span>Nazerke әзірлеген оқу жобасы</p>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+        <div class="hero-glow hero-glow-rose"></div>
+        <div class="hero-glow hero-glow-lavender"></div>
+        <div class="hero-product-card glass-card">
+            <div class="product-card-top"><span class="product-card-icon">✿</span><span class="product-status">Тексерілді</span></div>
+            <div class="product-card-lines"><i></i><i></i><i></i></div>
+            <div class="product-card-bottom"><span>Керамикадан жасалған кесе</span><strong>₸ 8 900</strong></div>
+        </div>
+        <div class="floating-note floating-note-validation"><span class="validation-check">✓</span><span>Деректер сенімді<br /><small>Validation белсенді</small></span></div>
+        <div class="floating-note floating-note-model"><span class="model-chip">VM</span>ViewModel</div>
+        <span class="hero-sparkle sparkle-one">✦</span><span class="hero-sparkle sparkle-two">✧</span>
+    </div>
+</section>
+
+<section class="section-heading home-section-heading">
+    <div><span class="eyebrow">ЖОБАНЫҢ МҮМКІНДІКТЕРІ</span><h2>Әр дерекке мұқият қараңыз</h2></div>
+    <p>Формадағы тексеруден бастап базаға сақтауға дейінгі жұмыс бірізді әрі түсінікті.</p>
+</section>
+
+<section class="feature-grid">
+    <article class="feature-card">
+        <span class="feature-icon feature-icon-lavender">01</span><span class="feature-label">МОДЕЛЬ</span>
+        <h3>ViewModel</h3><p>Формаға қажет өрістерді Domain Model-ден бөлек ұстап, тек рұқсат етілген деректерді қабылдайды.</p>
+    </article>
+    <article class="feature-card">
+        <span class="feature-icon feature-icon-rose">02</span><span class="feature-label">ЕРЕЖЕЛЕР</span>
+        <h3>Data Annotations</h3><p>Міндеттілік, ұзындық, баға, email және атау пішімі қазақша ережелермен тексеріледі.</p>
+    </article>
+    <article class="feature-card">
+        <span class="feature-icon feature-icon-mixed">03</span><span class="feature-label">БАҚЫЛАУ</span>
+        <h3>ModelState</h3><p>Сервер барлық сұранысты қайта тексеріп, қате өрістерге нақты хабарлама көрсетеді.</p>
+    </article>
+</section>
+
+<section class="concept-strip">
+    <span class="concept-star" aria-hidden="true">✳</span>
+    <div><span class="eyebrow">ҚАУІПСІЗ ЖӘНЕ ТҮСІНІКТІ</span><h2>Браузер тексереді. Сервер растайды.</h2></div>
+    <p>jQuery Validation қателерді формада бірден көрсетеді. JavaScript өшірілсе де, `ModelState.IsValid` және custom validation деректерді серверде тексеруді жалғастырады.</p>
+</section>

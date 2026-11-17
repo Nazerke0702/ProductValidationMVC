@@ -1,0 +1,40 @@
+@model ProductValidationMVC.ViewModels.ProductCreateViewModel
+@{ ViewData["Title"] = "Тауар қосу"; }
+
+<div class="page-heading form-heading">
+    <div><a class="back-link" asp-controller="Home" asp-action="Index">← Басты бетке қайту</a><span class="eyebrow">ЖАҢА ӨНІМ</span><h1>Тауар тіркеу</h1><p>Төмендегі ақпаратты енгізіңіз, қалғанын біз тексереміз.</p></div>
+    <div class="step-indicator"><span>01</span><small>Тауар ақпараты</small></div>
+</div>
+
+<div class="form-layout">
+    <form asp-action="Create" method="post" class="form-card" novalidate>
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger validation-summary"></div>
+
+        <div class="form-section-title"><span class="section-number">1</span><div><h2>Негізгі ақпарат</h2><p>Өнімнің атауы, санаты және сипаттамасы.</p></div></div>
+        <div class="row g-4">
+            <div class="col-12"><label asp-for="Name" class="form-label">Тауар атауы <span class="required-marker">*</span></label><input asp-for="Name" class="form-control" placeholder="Мысалы: Қолдан жасалған кесе" autocomplete="off" /><span asp-validation-for="Name" class="text-danger field-error"></span></div>
+            <div class="col-12"><label asp-for="Description" class="form-label"></label><textarea asp-for="Description" class="form-control" rows="3" placeholder="Тауар туралы қысқаша мәлімет"></textarea><span asp-validation-for="Description" class="text-danger field-error"></span><div class="field-hint">500 таңбаға дейін</div></div>
+            <div class="col-md-6"><label asp-for="Category" class="form-label">Категориясы <span class="required-marker">*</span></label><select asp-for="Category" class="form-select"><option value="">Категорияны таңдаңыз</option>@foreach (string category in ViewBag.Categories){<option value="@category">@category</option>}</select><span asp-validation-for="Category" class="text-danger field-error"></span></div>
+            <div class="col-md-6"><label asp-for="ManufactureDate" class="form-label"></label><input asp-for="ManufactureDate" class="form-control" /><span asp-validation-for="ManufactureDate" class="text-danger field-error"></span><div class="field-hint">Бүгінгі немесе өткен күн</div></div>
+        </div>
+
+        <div class="form-divider"></div>
+        <div class="form-section-title"><span class="section-number section-number-blue">2</span><div><h2>Баға және қор</h2><p>Өнімнің бағасы мен қолда бар санын көрсетіңіз.</p></div></div>
+        <div class="row g-4">
+            <div class="col-md-6"><label asp-for="Price" class="form-label">Бағасы <span class="required-marker">*</span></label><div class="input-suffix"><input asp-for="Price" class="form-control" type="number" min="1" max="1000000" step="0.01" placeholder="0" /><span>₸</span></div><span asp-validation-for="Price" class="text-danger field-error"></span></div>
+            <div class="col-md-6"><label asp-for="Quantity" class="form-label">Саны <span class="required-marker">*</span></label><div class="input-suffix"><input asp-for="Quantity" class="form-control" type="number" min="1" max="10000" step="1" placeholder="0" /><span>дана</span></div><span asp-validation-for="Quantity" class="text-danger field-error"></span></div>
+        </div>
+
+        <div class="form-divider"></div>
+        <div class="form-section-title"><span class="section-number section-number-purple">3</span><div><h2>Байланыс ақпараты</h2><p>Тіркеуге жауапты email мекенжайын растаңыз.</p></div></div>
+        <div class="row g-4">
+            <div class="col-md-6"><label asp-for="Email" class="form-label">Email <span class="required-marker">*</span></label><input asp-for="Email" class="form-control" type="email" placeholder="name@example.kz" autocomplete="email" /><span asp-validation-for="Email" class="text-danger field-error"></span></div>
+            <div class="col-md-6"><label asp-for="ConfirmEmail" class="form-label">Email растау <span class="required-marker">*</span></label><input asp-for="ConfirmEmail" class="form-control" type="email" placeholder="Email мекенжайын қайталаңыз" autocomplete="off" /><span asp-validation-for="ConfirmEmail" class="text-danger field-error"></span></div>
+        </div>
+
+        <div class="form-footer"><p><span class="required-marker">*</span> Міндетті өрістер</p><div><a asp-action="Index" class="btn btn-soft">Болдырмау</a><button type="submit" class="btn btn-studio-primary">Тауарды сақтау <span aria-hidden="true">→</span></button></div></div>
+    </form>
+    <aside class="form-aside"><div class="aside-icon">✦</div><span class="eyebrow">ҚАУІПСІЗ ТІРКЕУ</span><h3>Деректер мұқият тексеріледі</h3><p>Формаға арналған ViewModel дерекқор моделінен бөлек. Тек қажетті өрістер сақталады.</p><ul><li>Браузерде жедел тексеру</li><li>Серверде қайта тексеру</li><li>SQLite базасына сақтау</li></ul><div class="aside-note">Атау қазақ, орыс және ағылшын әріптерін қабылдайды.</div></aside>
+</div>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

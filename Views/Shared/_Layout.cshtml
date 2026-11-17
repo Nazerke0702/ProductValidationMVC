@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f8f5ff" />
+    <title>@ViewData["Title"] · ProductValidationMVC</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar navbar-expand-lg studio-nav" aria-label="Негізгі навигация">
+            <div class="container studio-nav-inner">
+                <a class="navbar-brand studio-brand" asp-controller="Home" asp-action="Index">
+                    <span class="brand-mark" aria-hidden="true">N</span>
+                    <span class="brand-copy">Nazerke Studio<small>PRODUCT MANAGEMENT</small></span>
+                </a>
+                <button class="navbar-toggler studio-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#studioNavigation" aria-controls="studioNavigation" aria-expanded="false" aria-label="Навигацияны ашу">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="studioNavigation">
+                    <div class="navbar-nav ms-auto align-items-lg-center studio-links">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Басты бет</a>
+                        <a class="nav-link" asp-controller="Products" asp-action="Index">Тауарлар</a>
+                        <a class="nav-link nav-add" asp-controller="Products" asp-action="Create"><span aria-hidden="true">＋</span> Тауар қосу</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-container">@RenderBody()</main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <span>© 2026 Nazerke. Барлық құқықтар қорғалған.</span>
+            <span class="footer-credit">Made with <span aria-label="махаббат">♡</span> by Nazerke</span>
+            <span>ASP.NET Core MVC <i>•</i> .NET 10</span>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

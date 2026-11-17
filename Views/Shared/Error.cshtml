@@ -1,0 +1,3 @@
+@model ProductValidationMVC.Models.ErrorViewModel
+@{ ViewData["Title"] = "Қате"; }
+<section class="success-card"><div class="success-check" style="background:#fff0f0;color:#cf5964">!</div><span class="eyebrow">СҰРАНЫС ОРЫНДАЛМАДЫ</span><h1>Қате орын алды</h1><p>Сұрауды өңдеу кезінде күтпеген қате болды. Кейінірек қайталап көріңіз.</p>@if (Model.ShowRequestId){<p class="mt-3">Сұраныс нөмірі: <code>@Model.RequestId</code></p>}<div class="success-actions"><a asp-controller="Home" asp-action="Index" class="btn btn-primary">Басты бетке қайту</a><a asp-controller="Products" asp-action="Index" class="btn btn-outline-primary">Тауарлар тізімі</a></div></section>

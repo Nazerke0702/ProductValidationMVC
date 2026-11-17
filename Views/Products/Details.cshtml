@@ -1,0 +1,16 @@
+@model ProductValidationMVC.Models.Product
+@{ ViewData["Title"] = "Тауар туралы"; }
+
+<div class="page-heading details-heading"><div><a class="back-link" asp-action="Index">← Тауарлар тізіміне қайту</a><span class="eyebrow">ӨНІМ ТУРАЛЫ МӘЛІМЕТ</span><h1>@Model.Name</h1><p>Тауар № @Model.Id <span class="details-divider">·</span> <span class="category-pill">@Model.Category</span></p></div></div>
+
+<section class="details-card">
+    <div class="details-card-heading"><span class="details-product-icon">✿</span><div><span class="eyebrow">САТУ БАҒАСЫ</span><strong class="details-price">@Model.Price.ToString("N2") ₸</strong></div><span class="details-stock">@Model.Quantity дана бар</span></div>
+    <div class="details-divider-line"></div>
+    <div class="details-grid">
+        <div class="detail-item"><span>Сипаттамасы</span><strong>@(string.IsNullOrWhiteSpace(Model.Description) ? "Сипаттама берілмеген" : Model.Description)</strong></div>
+        <div class="detail-item"><span>Қолда бар саны</span><strong>@Model.Quantity дана</strong></div>
+        <div class="detail-item"><span>Байланыс Email</span><strong>@Model.Email</strong></div>
+        <div class="detail-item"><span>Тіркелген уақыты</span><strong>@Model.CreatedDate.ToLocalTime().ToString("dd MMMM yyyy, HH:mm")</strong></div>
+    </div>
+    <a asp-action="Index" class="btn btn-studio-secondary">← Тізімге қайту</a>
+</section>
